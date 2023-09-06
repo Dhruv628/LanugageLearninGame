@@ -19,7 +19,7 @@ function Navbar() {
       }
     };
     const handleScroll = () => {
-      setIscrolled(window.scrollY > 50 );
+      setIscrolled(window.scrollY > 120 );
     };
 
     window.addEventListener('scroll', handleScroll);
