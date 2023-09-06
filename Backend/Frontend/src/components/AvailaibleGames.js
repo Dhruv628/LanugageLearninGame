@@ -1,10 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const AvailaibleGames = () => {
     
+
+    const [Play, setPlay] = useState(false)
     const [English, setEnglish] = useState(false)
     const [Hindi, setHindi] = useState(false)
+    useEffect(() => {
+          // Helper function to get cookies
+  function getCookie(name) {
+    const cookieName = `${name}=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+      let cookie = cookieArray[i].trim();
+      if (cookie.indexOf(cookieName) === 0) {
+        return cookie.substring(cookieName.length, cookie.length);
+      }
+    }
+    return '';
+  }
+        const token = getCookie('authtoken');
+        if(token!==''){
+         setPlay(true)
+        }
+        else{
+            setPlay(false)
+        }
+    }, [])
+    
     
   return (
     <div style={{fontFamily:"'Nunito', sans-serif"}} className=' h-[90vh] lg:h-[80vh] flex items-center py-8 z-0'>
@@ -12,13 +37,13 @@ const AvailaibleGames = () => {
             {/* E N G L I S H  */}
             <div id='English' className='h-[35vh] md:h-[40vh] relative rounded-md w-[90vw] sm:w-[80vw] md:w-[35vw]' onClick={()=>setEnglish(true)} onMouseEnter={()=>setEnglish(true)} onMouseLeave={()=>setEnglish(false)}>
                 <div className={`${English?"absolute h-[100%] flex justify-center items-center transition duration-200 text-white w-[100%] bg-black bg-opacity-40":"h-[0%] transition duration-200"}`}>
-                   <Link to="/details" className={`${English?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
+                   <Link to={`/${Play?"details":"login"}`} className={`${English?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
                 </div> 
             </div>
             {/* H I N D I  */}
             <div  className='Hindi h-[35vh] md:h-[40vh] relative rounded-md w-[90vw] sm:w-[80vw] md:w-[35vw]' onClick={()=>setHindi(true)} onMouseEnter={()=>setHindi(true)} onMouseLeave={()=>setHindi(false)}>
                 <div className={`${Hindi?"absolute h-[100%] flex justify-center items-center transition duration-200 text-white w-[100%] bg-black bg-opacity-40":"h-[0%] transition duration-200"}`}>
-                   <Link to="/hindi" className={`${Hindi?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play  <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
+                   <Link to={`/${Play?"details":"/hindi"}`} className={`${Hindi?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play  <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
                 </div> 
             </div>
         </div>
