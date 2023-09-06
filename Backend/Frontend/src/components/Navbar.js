@@ -90,7 +90,7 @@ function Navbar() {
           </div>
         </Link>
         {/* Menu items */}
-        <ul className={` absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
+        <ul className={` absolute hidden top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
           {/* Home */}
           <li>
             <Link to="/" className="text-sm text-white hover:text-blue-500 hover:font-semibold focus:text-blue-500 focus:font-semibold">
