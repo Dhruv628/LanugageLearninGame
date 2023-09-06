@@ -4,7 +4,6 @@ import Divider from '../assets/img/Divider';
 
 function Navbar() {
   // State and variable declarations
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [Token, setToken] = useState('');
   const [Iscrolled, setIscrolled] = useState(false);
   const [ProfileDisplay, setProfileDisplay] = useState(false);
@@ -39,10 +38,7 @@ function Navbar() {
     navigate('/login');
   };
 
-  // Toggle menu function
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+ 
 
   // Handle account menu
   const handleAccount = async () => {
@@ -94,7 +90,7 @@ function Navbar() {
           </div>
         </Link>
         {/* Menu items */}
-        <ul className={`${isMenuOpen ? 'block' : 'hidden'} absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
+        <ul className={` absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
           {/* Home */}
           <li>
             <Link to="/" className="text-sm text-white hover:text-blue-500 hover:font-semibold focus:text-blue-500 focus:font-semibold">

@@ -4,7 +4,8 @@
   "description": "This is the backend for the quiz game",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "build":"NPM_CONFIG_PRODUCTION=false npm install  && npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "author": "Dhruv",
   "license": "ISC",

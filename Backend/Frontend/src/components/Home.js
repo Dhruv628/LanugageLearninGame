@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Bg from "../assets/img/Bg.svg";
 import Bg1 from "../assets/img/Bg1.svg";
 import { Link } from "react-router-dom";
-import AvailaibleGames from "./AvailaibleGames";
 
 const Home = () => {
   const [Token, setToken] = useState("");

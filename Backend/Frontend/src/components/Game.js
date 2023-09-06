@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import gj3 from "../assets/img/—Pngtree—great job lettering design_6639816.png";
 import gj4 from "../assets/img/gj4.svg";
-import { useNavigate } from "react-router-dom";
 import GameResults from "./GameResults";
 const Game = () => {
   const [Questions, setQuestions] = useState([]);

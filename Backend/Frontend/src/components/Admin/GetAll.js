@@ -52,7 +52,7 @@ const GetAll = () => {
     const ConfirmDelete=async()=>{
         const updatedQuestions = Questions.filter((question) => question._id !== id);
         setQuestions(updatedQuestions);
-        const response=await fetch(`http://localhost:5000/api/game/delete/${id}`,{
+        await fetch(`http://localhost:5000/api/game/delete/${id}`,{
             method:"DELETE",
             headers:{
                 token:token

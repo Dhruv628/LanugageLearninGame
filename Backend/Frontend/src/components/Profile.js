@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import User from "../assets/img/user.svg"
 import User2 from "../assets/img/usertwo.svg"
 const Profile = () => {
     const [user, setuser] = useState()

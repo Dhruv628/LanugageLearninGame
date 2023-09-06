@@ -4,8 +4,6 @@ import ScoreCard from "./ScoreCard";
 
 const GamesPlayed = () => {
   const [Games, setGames] = useState([]);
-  const [GamesDate, setGamesDate] = useState();
-  const [id, setid] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
