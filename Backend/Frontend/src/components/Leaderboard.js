@@ -88,8 +88,8 @@ const Leaderboard = () => {
 
             <div className="flex items-center space-x-2">
               <i className="far fa-envelope text-gray-600"></i>
-              <div className="text-lg font-semibold">Email:</div>
-              <div className="text-xl border-b border-gray-300">
+              <div className="text-base sm:text-lg font-semibold">Email:</div>
+              <div className="text-base sm:text-xl border-b border-gray-300">
                 {e.user.email}
               </div>
             </div>
