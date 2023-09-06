@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.App{ 
+
+    font-family:'Nunito', sans-serif;
+}
+
+#English{
+    background: url("https://www.schoolnetindia.com/blog/wp-content/uploads/2022/07/xHow-to-Learn-English-Speaking-at-Home-960x540.jpg.pagespeed.ic.V7ST1mm_rq.webp") no-repeat center center/cover;
+   
+    
+ }    
+ .Hindi{
+background: url("https://images.thequint.com/quint-hindi%2F2022-09%2Fb16d46e4-4791-4fd4-a589-ca5f310cba2e%2F___________70_.png?auto=format%2Ccompress&fmt=webp&width=720")no-repeat center center/cover;
+ }
