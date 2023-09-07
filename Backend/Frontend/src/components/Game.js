@@ -6,11 +6,14 @@ const Game = () => {
   const [Questions, setQuestions] = useState([]);
   const [counter, setCounter] = useState(0);
   const [answered, setAnswered] = useState("");
+  const [Easy, setEasy] = useState([])
+  const [Intermediate, setIntermediate] = useState([])
   const [scored, setScored] = useState(0);
   const [session, setSession] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [resultDisplay, setResultDisplay] = useState(false);
   const [results, setResults] = useState();
+
   // Shuffle function to randomize question order
   const shuffle = (array) => {
     let currentIndex = array.length,
@@ -28,13 +31,16 @@ const Game = () => {
 
   useEffect(() => {
     const fetchGame = async () => {
-      const response = await fetch("http://localhost:5000/api/game/get", {
+      const response = await fetch("https://backendofllgame.onrender.com/api/game/get", {
         method: "GET",
         headers: {
           "Content-type": "application/json",
         },
       }).then((res) => res.json());
-
+      
+      setEasy(shuffle(response.questions.filter((e) => e.score === 1)));
+      setIntermediate(shuffle(response.questions.filter((e) => e.score === 3)));
+       
       setQuestions([
         ...shuffle(response.questions.filter((e) => e.score === 1).slice(0, 5)),
         ...shuffle(response.questions.filter((e) => e.score === 3).slice(0, 5)),
@@ -42,7 +48,7 @@ const Game = () => {
       ]);
     };
     fetchGame();
-  }, [session]);
+  }, []);
 
   // Handling Next Question
   const handleNextQuestion = () => {
@@ -59,6 +65,39 @@ const Game = () => {
       scored: scored,
     };
     
+
+    let tQuestions = [...Questions];
+    if (counter < 14) {
+        // Check if the user answered incorrectly on the last question
+        if (scored === 0) {
+            const currentDifficulty = Questions[counter].score;
+            let nextDifficulty;
+            if (currentDifficulty === 1) {
+                nextDifficulty = 1;
+            } else if (currentDifficulty === 3) {
+                nextDifficulty = 3; 
+            } else {
+                nextDifficulty = 5;
+            }
+
+            // Find the next question of the determined difficulty
+            if (nextDifficulty === 1) {
+                tQuestions[counter + 1] = shuffle(Easy)[0];
+                setQuestions(tQuestions);
+            } else if (nextDifficulty === 3) {
+                tQuestions[counter + 1] = shuffle(Easy)[0]; 
+                setQuestions(tQuestions);
+            }else{
+              tQuestions[counter + 1] = shuffle(Intermediate)[0]; 
+              setQuestions(tQuestions);
+            }
+        }
+    }
+
+
+
+
+
     setSession([...session, Thesession]);
     console.log(session)
     setAnswered("");
@@ -90,7 +129,7 @@ const Game = () => {
 
   // Submitting the game
   const handleSessionSubmit = async () => {
-    const response = await fetch("http://localhost:5000/api/session/create", {
+    const response = await fetch("https://backendofllgame.onrender.com/api/session/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,7 +173,7 @@ const Game = () => {
                       Questions.map((element, index) => {
                         return (
                           <div
-                            key={element._id}
+                            key={index+2022}
                             className={`  rounded-sm text-xs sm:text-sm ${
                               counter >= index
                                 ? " bg-blue-500 text-white "
@@ -157,7 +196,7 @@ const Game = () => {
                     Questions.map((element, index) => {
                       return (
                         <div
-                          key={element._id}
+                          key={index+1022}
                           className="flex flex-col space-y-4 items-center"
                         >
                             {/* Question / difficulty  */}
@@ -183,7 +222,7 @@ const Game = () => {
                                       ? setScored(element.score)
                                       : setScored(0);
                                   }}
-                                  key={i + 10}
+                                  key={i + 21}
                                   className={`rounded-md text-sm lg:text-lg w-[95vw] lg:w-[80vw]  bg-white text-blue-500 hover:text-green-500 focus:text-green-600 transition duration-150 ease-in-out  py-3 text-start bg-transparent border px-4 mx-2`}
                                 >
                                   {i + 1}. &nbsp; {e}
