@@ -13,13 +13,13 @@ Step 2 :
 In terminal, type : "cd Backend" and then press "Enter"
 
 Step 3:
-run the command "npm run start" to start up the backend
+run the command "npm install", press " Enter" and once it's completed run the command "npm run start" to start the backend. 
 
 Step 4:
 Open up another terminal, type : "cd Backend" in it then press "Enter". Then type "cd Frontend" in the same terminal and press "Enter".
 
 Step 5:
-Run the command "npm run start" in the terminal.
+run the command "npm install", press " Enter" and once it's completed run the command "npm run start" to start website.
 
 
 
