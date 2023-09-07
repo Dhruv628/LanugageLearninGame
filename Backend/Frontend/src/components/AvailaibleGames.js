@@ -43,7 +43,7 @@ const AvailaibleGames = () => {
             {/* H I N D I  */}
             <div  className='Hindi h-[35vh] md:h-[40vh] relative rounded-md w-[90vw] sm:w-[80vw] md:w-[35vw]' onClick={()=>setHindi(true)} onMouseEnter={()=>setHindi(true)} onMouseLeave={()=>setHindi(false)}>
                 <div className={`${Hindi?"absolute h-[100%] flex justify-center items-center transition duration-200 text-white w-[100%] bg-black bg-opacity-40":"h-[0%] transition duration-200"}`}>
-                   <Link to={`/${Play?"details":"/hindi"}`} className={`${Hindi?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play  <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
+                   <Link to={`/${Play?"hindi":"/login"}`} className={`${Hindi?"px-4 uppercase bg-white text-black focus:bg-black focus:text-white focus:border focus:border-white hover:bg-black hover:text-white hover:border hover:border-white tracking-widest transition duration-75 py-1   border opacity-100 border-white rounded-sm":"hidden"}`}>Play  <i className="fa fa-arrow-right text-sm" aria-hidden="true"></i></Link>
                 </div> 
             </div>
         </div>
