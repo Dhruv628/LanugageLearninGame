@@ -19,6 +19,6 @@ app.use("/api/session",sessionRoute)
 app.listen(port,()=>{
     console.log(`Backend started succesfully at http://localhost:${port}`)
 })
-setTimeout(() => {
-    connectToDB();
-}, 300);
+
+connectToDB();
+
